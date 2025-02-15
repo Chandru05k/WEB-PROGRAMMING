@@ -1,0 +1,133 @@
+body{
+    margin:0;
+    border:0;
+    background-image:url("https://t3.ftcdn.net/jpg/02/71/82/90/360_F_271829099_FYxsEoMCjlTjm17wVeEfwnKTWGKZMzNS.jpg");
+    background-size:cover;
+    min-height: 100vh;
+    width: 100%;
+}
+
+#div1, #div2, #div3{
+    display: inline-block;
+}
+
+#div1{
+    position:relative;
+    left:70px;
+}
+
+#div1 h1::first-letter{
+    color: blueviolet;
+    font-size: 45px;
+}
+
+#div2{
+    position: relative;
+    left:130px;
+    bottom:5px;
+    word-spacing: 40px;
+}
+
+#div2 button{
+    border:none;
+    background:none;
+}
+
+#div2 button:hover{
+    text-decoration: underline;
+}
+
+#div3{
+    position: absolute;
+    right:100px;
+    top:40px;
+}
+
+#div3 button{
+    border-radius:5px;
+    width:100px;
+    height:30px;
+    background-color: blueviolet;
+    border:none;
+    color:white;
+}
+
+#div4{
+    position:relative;
+    left:70px;
+    top:150px;
+    max-width: 700px;
+    line-height: 28px;
+}
+
+#div4 p{
+    text-align:justify;
+}
+
+#span{
+    color:blueviolet;
+}
+
+#div5{
+    position:relative;
+    left:520px;
+    bottom:270px;
+}
+
+#div5 img{
+    float: left;
+    margin: 10px;
+    width: 1000px;
+    height: auto;
+}
+
+#div6{
+    position:relative;
+    right:950px;
+    top:160px;
+    word-spacing: 20px;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+#but1{
+    border:none;
+    background-color: blueviolet;
+    border-radius: 5px;
+    color:white;
+    height:30px;
+    width:80px;
+}
+
+#but2{
+    border:none;
+    border:2px solid blueviolet;
+    height:30px;
+    width:100px;
+    border-radius: 5px;
+    background: none;
+    color:blueviolet;
+}
+
+#div7{
+    position: absolute;
+    bottom: 150px;
+    left:70px;
+    word-spacing: 20px;
+}
+
+#div7 button{
+    border-radius: 360px;
+    background-color: blueviolet;
+    border:none;
+    color:white;
+    width:30px;
+    height:30px;
+    border:1px solid white;
+}
+
+#b3 img{
+    width:12px;
+}
