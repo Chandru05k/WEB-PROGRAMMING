@@ -1,326 +1,228 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    tools:ignore="ExtraText">
+package com.example.calculator
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp">
-        
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:textSize="50dp"
-            android:text="0" />
+import android.os.Bundle
+import android.view.View
+import android.widget.TextView
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 
-    </RelativeLayout>
-    <RelativeLayout
-        android:id="@+id/rel1"
-        android:layout_margin="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <Button
-            android:id="@+id/per"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_centerVertical="true"
-            android:text="%"
-            android:textSize="30dp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="2dp"
-            android:onClick="perclicked"/>
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_main)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+    }
+    var firstNumber:Double=0.0;
+    var isadd:Boolean=false;
+    var issub:Boolean=false;
+    var ismul:Boolean=false;
+    var isdiv:Boolean=false;
+    var ismod:Boolean=false;
 
 
+    fun perclicked(view: View) {
+        val textView: TextView = findViewById(R.id.textView);
+        val output: String=textView.text.toString();
+        if(output.isNotEmpty()){
+            firstNumber=output.toDouble();
+            ismod=true;
+            textView.text="0";
+        }
+    }
+    fun ceclicked(view: View) {}
+    fun clearclicked(view: View) {
+        val textView: TextView = findViewById(R.id.textView);
+        textView.setText("0");
 
-        <Button
-            android:id="@+id/ce"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_centerVertical="true"
-            android:text="CE"
-            android:textSize="30dp"
-            android:layout_marginLeft="7dp"
-            android:layout_marginRight="2dp"
-            android:layout_toEndOf="@+id/per"
-            android:onClick="ceclicked"/>
+    }
+    fun backclicked(view: View) {
+        val textView: TextView = findViewById(R.id.textView);
+        val output: String=textView.text.toString();
+        if(output.isNotEmpty()){
+            textView.text=output.substring(0,output.length-1);
+        }
+        else{
+            textView.text="0";
+        }
 
+    }
+    fun sevenclicked(view: View) {
+        val textView: TextView = findViewById(R.id.textView);
+        val output: String=textView.text.toString();
+        if(output=="0"){
+            textView.setText("7");
+        }
+        else {
+            textView.setText(output + "7");
+        }
+    }
+    fun eightclicked(view: View) {
+        val textView: TextView = findViewById(R.id.textView);
+        val output: String=textView.text.toString();
+        if(output=="0"){
+            textView.setText("8");
+        }
+        else {
+            textView.setText(output + "8");
+        }
+    }
+    fun nineclicked(view: View) {
+        val textView: TextView = findViewById(R.id.textView);
+        val output: String=textView.text.toString();
+        if(output=="0"){
+            textView.setText("9");
+        }
+        else {
+            textView.setText(output + "9");
+        }
+    }
+    fun divclicked(view: View) {
+        val textView: TextView = findViewById(R.id.textView);
+        val output: String=textView.text.toString();
+        if(output.isNotEmpty()){
+            firstNumber=output.toDouble();
+            isdiv  =true;
+            textView.text="0";
+        }
+    }
+    fun fourclicked(view: View) {
+        val textView: TextView = findViewById(R.id.textView);
+        val output: String=textView.text.toString();
+        if(output=="0"){
+            textView.setText("4");
+        }
+        else {
+            textView.setText(output + "4");
+        }
+    }
+    fun fiveclicked(view: View) {
+        val textView: TextView = findViewById(R.id.textView);
+        val output: String=textView.text.toString();
+        if(output=="0"){
+            textView.setText("5");
+        }
+        else {
+            textView.setText(output + "5");
+        }
+    }
+    fun sixclicked(view: View) {
+        val textView: TextView = findViewById(R.id.textView);
+        val output: String=textView.text.toString();
+        if(output=="0"){
+            textView.setText("6");
+        }
+        else {
+            textView.setText(output + "6");
+        }
+    }
+    fun mulclicked(view: View) {
+        val textView: TextView = findViewById(R.id.textView);
+        val output: String=textView.text.toString();
+        if(output.isNotEmpty()){
+            firstNumber=output.toDouble();
+            ismul=true;
+            textView.text="0";
+        }
+    }
+    fun oneclicked(view: View) {
+        val textView: TextView = findViewById(R.id.textView);
+        val output: String=textView.text.toString();
+        if(output=="0"){
+            textView.setText("1");
+        }
+        else {
+            textView.setText(output + "1");
+        }
+    }
+    fun twoclicked(view: View) {
+        val textView: TextView = findViewById(R.id.textView);
+        val output: String=textView.text.toString();
+        if(output=="0"){
+            textView.setText("2");
+        }
+        else {
+            textView.setText(output + "2");
+        }
+    }
+    fun threeclicked(view: View) {
+        val textView: TextView = findViewById(R.id.textView);
+        val output: String=textView.text.toString();
+        if(output=="0"){
+            textView.setText("3");
+        }
+        else {
+            textView.setText(output + "3");
+        }
+    }
+    fun subclicked(view: View) {
+        val textView: TextView = findViewById(R.id.textView);
+        val output: String=textView.text.toString();
+        if(output.isNotEmpty()){
+            firstNumber=output.toDouble();
+            issub=true;
+            textView.text="0";
+        }
+    }
+    fun equalclicked(view: View) {
+        val textView: TextView = findViewById(R.id.textView);
+        val secondNumber=textView.text.toString().toDouble();
+        if(isadd){
+            textView.text=(firstNumber+secondNumber).toString();
+            isadd=false;
+        }
+        if(issub){
+            textView.text=(firstNumber-secondNumber).toString();
+            issub=false;
+        }
+        if(ismul){
+            textView.text=(firstNumber*secondNumber).toString();
+            ismul=false;
+        }
+        if(isdiv){
+            textView.text=(firstNumber/secondNumber).toString();
+            isdiv=false;
+        }
+        if(ismod){
+            textView.text=(firstNumber%secondNumber).toString();
+            ismod=false;
+        }
+    }
+    fun zeroclicked(view: View) {
+        val textView: TextView = findViewById(R.id.textView);
+        val output: String=textView.text.toString();
+        if(output=="0"){
+            textView.setText("0");
+        }
+        else {
+            textView.setText(output + "0");
+        }
+    }
+    fun decclicked(view: View) {
+        val textView: TextView = findViewById(R.id.textView);
+        val output: String=textView.text.toString();
+        if(output=="0"){
+            textView.setText(".");
+        }
+        else {
+            textView.setText(output + ".");
+        }
+    }
 
-        <Button
-            android:id="@+id/c"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_centerVertical="true"
-            android:text="C"
-            android:textSize="30dp"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="7dp"
-            android:layout_toLeftOf="@+id/back"
-            android:onClick="clearclicked"/>
+    fun addclicked(view: View) {
+        val textView: TextView = findViewById(R.id.textView);
+        val output: String=textView.text.toString();
+        if(output.isNotEmpty()){
+            firstNumber=output.toDouble();
+            isadd=true;
+            textView.text="0";
+        }
 
-        <Button
-            android:id="@+id/back"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_centerVertical="true"
-            android:text="&lt;"
-            android:textSize="30dp"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="2dp"
-            android:layout_alignParentRight="true"
-            android:onClick="backclicked"/>
-
-
-
-        
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/rel2"
-        android:layout_margin="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <Button
-            android:id="@+id/num7"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_centerVertical="true"
-            android:text="7"
-            android:textSize="30dp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="2dp"
-            android:onClick="sevenclicked"/>
-
-
-        <Button
-            android:id="@+id/num8"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_centerVertical="true"
-            android:text="8"
-            android:textSize="30dp"
-            android:layout_marginLeft="7dp"
-            android:layout_marginRight="2dp"
-            android:layout_toRightOf="@+id/num7"
-            android:onClick="eightclicked"/>
-
-
-        <Button
-            android:id="@+id/num9"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_centerVertical="true"
-            android:text="9"
-            android:textSize="30dp"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="7dp"
-            android:layout_toLeftOf="@+id/div"
-            android:onClick="nineclicked"/>
-
-        <Button
-            android:id="@+id/div"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_centerVertical="true"
-            android:text="/"
-            android:textSize="30dp"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="2dp"
-            android:layout_alignParentRight="true"
-            android:onClick="divclicked"/>
-
-
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/rel3"
-        android:layout_margin="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <Button
-            android:id="@+id/num4"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_centerVertical="true"
-            android:text="4"
-            android:textSize="30dp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="2dp"
-            android:onClick="fourclicked"/>
-
-
-        <Button
-            android:id="@+id/num5"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_centerVertical="true"
-            android:text="5"
-            android:textSize="30dp"
-            android:layout_marginLeft="7dp"
-            android:layout_marginRight="2dp"
-            android:layout_toRightOf="@+id/num4"
-            android:onClick="fiveclicked"/>
-
-
-        <Button
-            android:id="@+id/num6"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_centerVertical="true"
-            android:text="6"
-            android:textSize="30dp"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="7dp"
-            android:layout_toLeftOf="@+id/mul"
-            android:onClick="sixclicked"/>
-
-        <Button
-            android:id="@+id/mul"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_centerVertical="true"
-            android:text="x"
-            android:textSize="30dp"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="2dp"
-            android:layout_alignParentRight="true"
-            android:onClick="mulclicked"/>
-
-
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/rel4"
-        android:layout_margin="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <Button
-            android:id="@+id/num1"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_centerVertical="true"
-            android:text="1"
-            android:textSize="30dp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="2dp"
-            android:onClick="oneclicked"/>
-
-
-        <Button
-            android:id="@+id/num2"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_centerVertical="true"
-            android:text="2"
-            android:textSize="30dp"
-            android:layout_marginLeft="7dp"
-            android:layout_marginRight="2dp"
-            android:layout_toRightOf="@+id/num1"
-            android:onClick="twoclicked"/>
-
-
-        <Button
-            android:id="@+id/num3"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_centerVertical="true"
-            android:text="3"
-            android:textSize="30dp"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="7dp"
-            android:layout_toLeftOf="@+id/sub"
-            android:onClick="threeclicked"/>
-
-        <Button
-            android:id="@+id/sub"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_centerVertical="true"
-            android:text="-"
-            android:textSize="30dp"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="2dp"
-            android:layout_alignParentRight="true"
-            android:onClick="subclicked"/>
-
-
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/rel5"
-        android:layout_margin="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <Button
-            android:id="@+id/equal"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_centerVertical="true"
-            android:text="="
-            android:textSize="30dp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="2dp"
-            android:onClick="equalclicked"/>
-
-
-        <Button
-            android:id="@+id/num0"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_centerVertical="true"
-            android:text="0"
-            android:textSize="30dp"
-            android:layout_marginLeft="7dp"
-            android:layout_marginRight="2dp"
-            android:layout_toRightOf="@+id/equal"
-            android:onClick="zeroclicked"/>
-
-
-        <Button
-            android:id="@+id/dec"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_centerVertical="true"
-            android:text="."
-            android:textSize="30dp"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="7dp"
-            android:layout_toLeftOf="@+id/add"
-            android:onClick="decclicked"/>
-
-        <Button
-            android:id="@+id/add"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_centerVertical="true"
-            android:text="+"
-            android:textSize="30dp"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="2dp"
-            android:layout_alignParentRight="true"
-            android:onClick="addclicked"/>
-
-
-
-    </RelativeLayout>
-
-
-
-</LinearLayout>
+    }
+}
