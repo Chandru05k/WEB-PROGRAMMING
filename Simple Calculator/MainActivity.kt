@@ -1,14 +1,3 @@
-package com.example.calculator
-
-import android.os.Bundle
-import android.view.View
-import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-
-class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -19,210 +8,219 @@ class MainActivity : AppCompatActivity() {
             insets
         }
     }
-    var firstNumber:Double=0.0;
-    var isadd:Boolean=false;
-    var issub:Boolean=false;
-    var ismul:Boolean=false;
-    var isdiv:Boolean=false;
-    var ismod:Boolean=false;
+    var firstNumber=0;
+    var secondNumber=0;
+    var res=0;
+    var isadd:Boolean=false
+    var issub:Boolean=false
+    var ismul:Boolean=false
+    var isdiv:Boolean=false
+    var ismod:Boolean=false
 
 
     fun perclicked(view: View) {
-        val textView: TextView = findViewById(R.id.textView);
-        val output: String=textView.text.toString();
+        val textView: TextView = findViewById(R.id.textView)
+        val output: String=textView.text.toString()
         if(output.isNotEmpty()){
-            firstNumber=output.toDouble();
-            ismod=true;
-            textView.text="0";
+            firstNumber=output.toInt()
+            ismod=true
+            textView.text="0"
         }
     }
     fun ceclicked(view: View) {}
     fun clearclicked(view: View) {
-        val textView: TextView = findViewById(R.id.textView);
-        textView.setText("0");
+        val textView: TextView = findViewById(R.id.textView)
+        textView.text = "0"
 
     }
     fun backclicked(view: View) {
-        val textView: TextView = findViewById(R.id.textView);
-        val output: String=textView.text.toString();
-        if(output.isNotEmpty()){
-            textView.text=output.substring(0,output.length-1);
+        val textView: TextView = findViewById(R.id.textView)
+        val output: String=textView.text.toString()
+        if(output.length==1){
+            textView.text="0"
         }
         else{
-            textView.text="0";
+            textView.text=output.substring(0,output.length-1)
         }
 
     }
     fun sevenclicked(view: View) {
-        val textView: TextView = findViewById(R.id.textView);
-        val output: String=textView.text.toString();
+        val textView: TextView = findViewById(R.id.textView)
+        val output: String=textView.text.toString()
         if(output=="0"){
-            textView.setText("7");
+            textView.text = "7"
         }
         else {
-            textView.setText(output + "7");
+            textView.text = output + "7"
         }
     }
     fun eightclicked(view: View) {
-        val textView: TextView = findViewById(R.id.textView);
-        val output: String=textView.text.toString();
+        val textView: TextView = findViewById(R.id.textView)
+        val output: String=textView.text.toString()
         if(output=="0"){
-            textView.setText("8");
+            textView.text = "8"
         }
         else {
-            textView.setText(output + "8");
+            textView.text = output + "8"
         }
     }
     fun nineclicked(view: View) {
-        val textView: TextView = findViewById(R.id.textView);
-        val output: String=textView.text.toString();
+        val textView: TextView = findViewById(R.id.textView)
+        val output: String=textView.text.toString()
         if(output=="0"){
-            textView.setText("9");
+            textView.text = "9"
         }
         else {
-            textView.setText(output + "9");
+            textView.text = output + "9"
         }
     }
     fun divclicked(view: View) {
-        val textView: TextView = findViewById(R.id.textView);
-        val output: String=textView.text.toString();
+        val textView: TextView = findViewById(R.id.textView)
+        val output: String=textView.text.toString()
         if(output.isNotEmpty()){
-            firstNumber=output.toDouble();
-            isdiv  =true;
-            textView.text="0";
+            firstNumber=output.toInt()
+            isdiv  =true
+            textView.text="0"
         }
     }
     fun fourclicked(view: View) {
-        val textView: TextView = findViewById(R.id.textView);
-        val output: String=textView.text.toString();
+        val textView: TextView = findViewById(R.id.textView)
+        val output: String=textView.text.toString()
         if(output=="0"){
-            textView.setText("4");
+            textView.text = "4"
         }
         else {
-            textView.setText(output + "4");
+            textView.text = output + "4"
         }
     }
     fun fiveclicked(view: View) {
-        val textView: TextView = findViewById(R.id.textView);
-        val output: String=textView.text.toString();
+        val textView: TextView = findViewById(R.id.textView)
+        val output: String=textView.text.toString()
         if(output=="0"){
-            textView.setText("5");
+            textView.text = "5"
         }
         else {
-            textView.setText(output + "5");
+            textView.text = output + "5"
         }
     }
     fun sixclicked(view: View) {
-        val textView: TextView = findViewById(R.id.textView);
-        val output: String=textView.text.toString();
+        val textView: TextView = findViewById(R.id.textView)
+        val output: String=textView.text.toString()
         if(output=="0"){
-            textView.setText("6");
+            textView.text = "6"
         }
         else {
-            textView.setText(output + "6");
+            textView.text = output + "6"
         }
     }
     fun mulclicked(view: View) {
-        val textView: TextView = findViewById(R.id.textView);
-        val output: String=textView.text.toString();
+        val textView: TextView = findViewById(R.id.textView)
+        val output: String=textView.text.toString()
         if(output.isNotEmpty()){
-            firstNumber=output.toDouble();
-            ismul=true;
-            textView.text="0";
+            firstNumber=output.toInt()
+            ismul=true
+            textView.text="0"
         }
     }
     fun oneclicked(view: View) {
-        val textView: TextView = findViewById(R.id.textView);
-        val output: String=textView.text.toString();
+        val textView: TextView = findViewById(R.id.textView)
+        val output: String=textView.text.toString()
         if(output=="0"){
-            textView.setText("1");
+            textView.text = "1"
         }
         else {
-            textView.setText(output + "1");
+            textView.text = output + "1"
         }
     }
     fun twoclicked(view: View) {
-        val textView: TextView = findViewById(R.id.textView);
-        val output: String=textView.text.toString();
+        val textView: TextView = findViewById(R.id.textView)
+        val output: String=textView.text.toString()
         if(output=="0"){
-            textView.setText("2");
+            textView.text = "2"
         }
         else {
-            textView.setText(output + "2");
+            textView.text = output + "2"
         }
     }
     fun threeclicked(view: View) {
-        val textView: TextView = findViewById(R.id.textView);
-        val output: String=textView.text.toString();
+        val textView: TextView = findViewById(R.id.textView)
+        val output: String=textView.text.toString()
         if(output=="0"){
-            textView.setText("3");
+            textView.text = "3"
         }
         else {
-            textView.setText(output + "3");
+            textView.text = output + "3"
         }
     }
     fun subclicked(view: View) {
-        val textView: TextView = findViewById(R.id.textView);
-        val output: String=textView.text.toString();
+        val textView: TextView = findViewById(R.id.textView)
+        val output: String=textView.text.toString()
         if(output.isNotEmpty()){
-            firstNumber=output.toDouble();
-            issub=true;
-            textView.text="0";
+            firstNumber=output.toInt();
+            issub=true
+            textView.text="0"
         }
     }
     fun equalclicked(view: View) {
-        val textView: TextView = findViewById(R.id.textView);
-        val secondNumber=textView.text.toString().toDouble();
+        val textView: TextView = findViewById(R.id.textView)
+        secondNumber=textView.text.toString().toInt();
         if(isadd){
-            textView.text=(firstNumber+secondNumber).toString();
-            isadd=false;
+            res= (firstNumber+secondNumber).toInt()
+            textView.text=res.toString()
+            isadd=false
+
         }
         if(issub){
-            textView.text=(firstNumber-secondNumber).toString();
-            issub=false;
+            res= (firstNumber-secondNumber).toInt()
+            textView.text=res.toString()
+            issub=false
         }
         if(ismul){
-            textView.text=(firstNumber*secondNumber).toString();
-            ismul=false;
+            res= (firstNumber*secondNumber).toInt()
+            textView.text=res.toString()
+            ismul=false
         }
         if(isdiv){
-            textView.text=(firstNumber/secondNumber).toString();
-            isdiv=false;
+            res= (firstNumber/secondNumber).toInt()
+            textView.text=res.toString()
+            isdiv=false
         }
         if(ismod){
-            textView.text=(firstNumber%secondNumber).toString();
-            ismod=false;
+            res= (firstNumber%secondNumber).toInt()
+            textView.text=res.toString()
+            ismod=false
         }
+        firstNumber=res;
+        secondNumber=0;
     }
     fun zeroclicked(view: View) {
-        val textView: TextView = findViewById(R.id.textView);
-        val output: String=textView.text.toString();
+        val textView: TextView = findViewById(R.id.textView)
+        val output: String=textView.text.toString()
         if(output=="0"){
-            textView.setText("0");
+            textView.text = "0"
         }
         else {
-            textView.setText(output + "0");
+            textView.text = output + "0"
         }
     }
     fun decclicked(view: View) {
-        val textView: TextView = findViewById(R.id.textView);
-        val output: String=textView.text.toString();
+        val textView: TextView = findViewById(R.id.textView)
+        val output: String=textView.text.toString()
         if(output=="0"){
-            textView.setText(".");
+            textView.text = "."
         }
         else {
-            textView.setText(output + ".");
+            textView.text = output + "."
         }
     }
 
     fun addclicked(view: View) {
-        val textView: TextView = findViewById(R.id.textView);
-        val output: String=textView.text.toString();
+        val textView: TextView = findViewById(R.id.textView)
+        val output: String=textView.text.toString()
         if(output.isNotEmpty()){
-            firstNumber=output.toDouble();
-            isadd=true;
-            textView.text="0";
+            firstNumber=output.toInt()
+            isadd=true
+            textView.text="0"
         }
 
     }
-}
